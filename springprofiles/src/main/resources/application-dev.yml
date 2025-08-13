@@ -1,8 +1,0 @@
-spring:
- config:
-   activate:
-    on-profile: dev
-
-app:
-  message: Hello This is the Development Environment. Supports only Production related work
-  version: 1.0.0 GT
