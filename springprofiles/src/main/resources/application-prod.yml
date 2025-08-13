@@ -1,0 +1,8 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+app:
+  message: Hello This is the Production Environment. Supports only Production related work
+  version: 1.0.0 GT

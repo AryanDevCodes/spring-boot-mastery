@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--     <bean id="UI" class="org.practice.bootproj2dependencyinjection.beans.UIcourseMaterial"/> -->
+<!--     <bean id="java" class="org.practice.bootproj2dependencyinjection.beans.JavaCourseMaterial"/> -->
+<!--     <bean id="dotNet" class="org.practice.bootproj2dependencyinjection.beans.DotNetCourseMaterial"/> -->
+<!--     <bean id="UI"/> -->
+<!--     <bean id="java"/> -->
+<!--     <bean id="dotNet"/> -->
+    <alias name="${beans}" alias="beanID"/>
+<!--         using ${} is tricky to use with the alias tag in xml -->
+
+</beans>

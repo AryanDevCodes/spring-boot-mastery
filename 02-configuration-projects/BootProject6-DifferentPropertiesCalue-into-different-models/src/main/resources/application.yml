@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: BootProject6-DifferentPropertiesCalue-into-different-models
+
+# Simple Properties
+team:
+  info:
+    id: 9078  # Team ID
+    name: Aryan  # Team Name
+
+    # Array Type props ==> prefix.prop[index] = value
+    member-name:
+      - Ashish  # Member name at index 0
+      - Abhishek  # Member name at index 1
+      - Manish  # Member name at index 2
+
+    # List Type Props ==> prefix.prop[index] = value
+    team-members:
+      - Bahu  # Team member at index 0
+      - Bali  # Team member at index 1
+      - Katappa  # Team member at index 2
+
+    # Set Type Props ==> prefix.prop[index] = value
+    phone-numbers:
+      - 93942908342  # Phone number at index 0
+      - 38290384803  # Phone number at index 1
+      - 83280238032  # Phone number at index 2
+
+    # Map Type Props ==> prefix.prop.keyName = value
+    id-details:
+      PanNumber: FMAPR5277P  # PAN Number
+      VoterId: 42974h29f2  # Voter ID
+      drivingId: 23ehd9323  # Driving ID
+
+    # Has-A Type Props ==> inherited
+    comp-details:
+      companyName: GlobalTech  # Company Name
+      companyAddress: Patna Bihar  # Company Address
+      size: 5000  # Company Size

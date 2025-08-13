@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello Spring MVC</title>
+  <style>
+    h1 {
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<h1 th:style="'color: red'">Dynamic Color
+  <h2>
+    <span th:text="${message}" style="color: aquamarine"></span>
+  </h2></h1>
+</body>
+</html>
