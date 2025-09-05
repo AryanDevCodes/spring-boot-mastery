@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Books</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-primary">📚 Library Books</h1>
+        <a th:href="@{/books/add}" class="btn btn-success">➕ Add Book</a>
+    </div>
+
+    <!-- Search Bar -->
+    <form th:action="@{/books}" method="get" class="d-flex mb-3">
+        <input type="text" name="q" class="form-control me-2" placeholder="Search by title..." />
+        <button type="submit" class="btn btn-outline-primary">🔍 Search</button>
+        <a th:href="@{/books}" class="btn btn-outline-secondary ms-2">Clear</a>
+    </form>
+
+    <!-- Table -->
+    <div class="table-responsive shadow-sm">
+        <table class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Status</th>
+                <th class="text-center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="b : ${books}">
+                <td th:text="${b.id}">1</td>
+                <td th:text="${b.title}">Title</td>
+                <td th:text="${b.author}">Author</td>
+                <td th:text="${b.isbn}">ISBN</td>
+                <td>
+            <span th:text="${b.status}"
+                  th:classappend="${b.status.name() == 'AVAILABLE'} ? 'badge bg-success' : 'badge bg-danger'">
+              AVAILABLE
+            </span>
+                </td>
+                <td class="text-center">
+                    <a th:href="@{/books/edit/{id}(id=${b.id})}" class="btn btn-sm btn-warning">✏️ Edit</a>
+                    <a th:href="@{/books/delete/{id}(id=${b.id})}" class="btn btn-sm btn-danger"
+                       onclick="return confirm('Are you sure to delete this book?');">🗑 Delete</a>
+
+                    <form th:action="@{/books/borrow/{id}(id=${b.id})}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-primary"
+                                th:disabled="${b.status.name()=='BORROWED'}">📖 Borrow</button>
+                    </form>
+
+                    <form th:action="@{/books/return/{id}(id=${b.id})}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-secondary"
+                                th:disabled="${b.status.name()=='AVAILABLE'}">↩️ Return</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
